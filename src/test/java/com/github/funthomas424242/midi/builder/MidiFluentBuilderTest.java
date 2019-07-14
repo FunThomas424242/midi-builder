@@ -1,4 +1,4 @@
-package com.github.funthomas424242.example.bookshop;
+package com.github.funthomas424242.midi.builder;
 
 /*-
  * #%L
@@ -29,30 +29,28 @@ import java.time.LocalDate;
 import java.time.Period;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
-class PersonTest {
+class MidiFluentBuilderTest {
 
-    Person person;
+    MidiFluentBuilder midiFluentBuilder;
 
     @BeforeEach
     void setUpTestfall() {
-        person = new Person("Thomas", "Schubert",
-                1968, 12, 25);
+        midiFluentBuilder = new MidiFluentBuilder();
     }
 
 
     @Test
-    void initAlterAufNull() {
-        assertEquals(0, person.alter);
+    void defaultInstanceNotNull() {
+        assertNotNull(midiFluentBuilder);
     }
 
 
     @Test
-    void berechneAlterKorrekt() {
-        final int alter = Period.between(person.geburtstag, LocalDate.now()).getYears();
-        person.berechneAlter();
-        assertEquals(alter, person.alter);
+    void gueltigerTaktVierViertel() {
+        final Takt takt = Takt.of(Note.of())
     }
 
 
